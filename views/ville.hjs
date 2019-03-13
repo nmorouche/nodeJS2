@@ -8,5 +8,14 @@
   <body>
     <p>Ville: {{ nom_ville }}</p>
     <p id="description">Description: <br>{{description}}</p>
+    <iframe
+      width="600"
+      height="600"
+      frameborder="0"
+      scrolling="no"
+      marginheight="0"
+      marginwidth="0"
+      src="https://maps.google.com/maps?q={{latitude}},{{longitude}}&hl=es;z=14&amp;output=embed">
+   </iframe>
   </body>
 </html>
