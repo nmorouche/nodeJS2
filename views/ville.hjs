@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="/images/favicon.png" />
   </head>
   <body>
-    <p>Ville: {{ nom_ville }}</p>
+    <p>Ville: {{nom_ville}}</p>
     <p id="description">Description: <br>{{description}}</p>
     <iframe
       style = "display: {{display}};"
