@@ -1,8 +1,8 @@
 # API nodeJS2
 
-Ce projet est un projet scolaire et le but est de tester une API en Node.JS.
-Vous aurez donc accès ici, à une application hébergé sur Heroku afin d'effectuer les différents tests.
-En effet, cette application vous servira à situer une ville sur une carte. Vous n'aurez plus qu'à insérer la ville dans le champs ville et valider le formulaire ;)
+Ce projet est un projet scolaire et le but est de tester une API en Node.JS.  
+Vous aurez donc accès ici, à une application hébergé sur Heroku afin d'effectuer les différents tests.  
+En effet, cette application vous servira à situer une ville sur une carte. Vous n'aurez plus qu'à insérer la ville dans le champs ville et valider le formulaire ;)  
 Application : https://evening-eyrie-83553.herokuapp.com/
 
 ## Comment utiliser
