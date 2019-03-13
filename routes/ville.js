@@ -3,8 +3,8 @@ var router = express.Router();
 var request = require("request");
 
 /* GET users listing. */
-router.post('/', async function(req, res) {
-  request(`https://geocode.xyz/${req.body.nom_ville}?json=1&auth=125570002384179154319x1962`, function(error, response, body) {
+router.post('/', function(req, res) {
+  request(`https://geocode.xyz/${req.body.nom_ville}?json=1&auth=125570002384179154319x1962`, async function(error, response, body) {
     let jsonParse = JSON.parse(body);
       if(jsonParse.error == null || jsonParse.error == undefined){
         res.render('ville', {
