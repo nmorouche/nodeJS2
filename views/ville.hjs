@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ville</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+  </head>
+  <body>
+    <p>Ville: {{ nom_ville }}</p>
+  </body>
+</html>

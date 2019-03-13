@@ -8,10 +8,11 @@
   <body>
     <h1><img src="/images/favicon.png" alt="favicon"/>{{ title }}</h1>
     <p>Bienvenue dans {{ title }}</p>
-    <form action="/ville" method="POST">
+    <form action="/ville" method="post">
       <div>
           <label for="label_ville">Ville :</label>
-          <input type="text" id="nom_ville" name="nom_ville">
+          <input type="text" name="nom_ville">
+          <input type="submit">
       </div>
     </form>
   </body>
