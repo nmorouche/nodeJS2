@@ -9,6 +9,7 @@
     <p>Ville: {{ nom_ville }}</p>
     <p id="description">Description: <br>{{description}}</p>
     <iframe
+      style = "display: {{display}};"
       width="600"
       height="600"
       frameborder="0"
