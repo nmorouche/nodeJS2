@@ -11,7 +11,11 @@
     <form action="/ville" method="post">
       <div>
           <label for="label_ville">Ville :</label>
-          <input type="text" name="nom_ville">
+          <input style="margin-bottom: 20px;" type="text" name="nom_ville">
+        <br>
+          <label for="label_description">Description :</label>
+          <textarea id="description" name="description">
+          </textarea>
           <input type="submit">
       </div>
     </form>

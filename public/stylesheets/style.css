@@ -10,3 +10,7 @@ img {
   display: inline-block;
   width: 25px;
 }
+
+#description {
+  white-space: pre-wrap;
+}

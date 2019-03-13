@@ -7,5 +7,6 @@
   </head>
   <body>
     <p>Ville: {{ nom_ville }}</p>
+    <p id="description">Description: <br><br>{{description}}</p>
   </body>
 </html>
