@@ -10,7 +10,7 @@ test('test form', async t => {
 */
 
 test('Test form exist', async t => {
-  const res = await axios.get('https://evening-eyrie-83553.herokuapp.com');
+  const res = await axios.get('http://localhost:3000/');
   let test = res.data.toString().includes('<form');
   t.is(test, true);
 });
@@ -18,7 +18,7 @@ test('Test form exist', async t => {
 test('Test ville identique', async t => {
   try {
     let ville = 'Villepinte'
-    const res = await axios.post('https://evening-eyrie-83553.herokuapp.com/ville', {
+    const res = await axios.post('http://localhost:3000/ville', {
       nom_ville: ville
     });
     var test = res.data.toString().includes(ville);
