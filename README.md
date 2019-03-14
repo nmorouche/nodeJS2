@@ -20,6 +20,21 @@ Assurez-vous d'avoir installé Node.JS avant de commencer.
 $ npm install
 ```
 
+## Comment tester les fonctionnalités
+
+Afin de lancer les différents tests d'intégrations/fonctionnels lancer la commande suivante à la racine du projet :
+
+```
+$ npm run test
+```
+Cette commande testera les fonctionnalités suivantes :
+
+* Si la page index contient bien un formulaire HTML.
+* Si la page /ville contient bien le paramètre fournis lors du POST
+* Si la ville entrée n'existe pas
+* Test s'il y a bien un message d'erreur lorsque la ville entrée n'existe pas
+* Affiche le bon message d'erreur si l'API Geocode nous renvoie une erreur 404.
+
 ## Créer avec
 
 * [Express](https://expressjs.com/en/api.html) - The web framework used
