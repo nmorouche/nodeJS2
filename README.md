@@ -12,6 +12,15 @@ Application : https://evening-eyrie-83553.herokuapp.com/
 $ curl -X POST --header "Content-Type: application/json" --data "{\"ville\":\"Paris\",\"description\":\"Paris est la capitale de la France\"}" https://evening-eyrie-83553.herokuapp.com/ville/
 ```
 
+* Pour utiliser l'application en local :
+```
+$ cd nodeJS2
+```
+```
+$ npm start
+```
+Se connecter ensuite à l'addresse suivante : http://localhost:3000/
+
 ## Installation
 
 Assurez-vous d'avoir installé Node.JS avant de commencer.
