@@ -3,6 +3,7 @@ var axios = require('axios');
 const nock = require('nock');
 const port = 3000;
 const app = require('./app.js');
+var {setCallGeoCode} = require('./routes/ville');
 
 app.listen(port, () => {
 
@@ -18,9 +19,8 @@ app.listen(port, () => {
       const city = 'berlin';
       const longt = 26;
       const latt = 22;
-      nock('https://geocode.xyz')
-      .get(`/${city}?json=1&auth=759315464425069903834x1979`)
-      .reply(200, { longt: longt, latt: latt});
+
+      setCallGeoCode((url) => ({data:{ longt: longt, latt: latt }}));
 
       const res = await axios.post('http://localhost:3000/ville', {
         nom_ville: city
@@ -40,9 +40,7 @@ app.listen(port, () => {
       const city = 'zefkjhzefkjnzef';
       const longt = 26;
       const latt = 22;
-      nock('https://geocode.xyz')
-      .get(`/${city}?json=1&auth=759315464425069903834x1979`)
-      .reply(200, { error:1});
+      setCallGeoCode((url) => ({data:{ error: 1 }}));
 
       const res = await axios.post('http://localhost:3000/ville', {
         nom_ville: city
@@ -63,9 +61,9 @@ app.listen(port, () => {
       const city = 'zefkjhzefkjnzef';
       const longt = 26;
       const latt = 22;
-      nock('https://geocode.xyz')
-      .get(`/${city}?json=1&auth=759315464425069903834x1979`)
-      .reply(404, { error:1 });
+      setCallGeoCode((url) => {
+        throw(new Error());
+      });
 
       const res = await axios.post('http://localhost:3000/ville', {
         nom_ville: city
@@ -84,10 +82,7 @@ app.listen(port, () => {
       const city = 'berlin';
       const longt = 26;
       const latt = 22;
-      nock('https://geocode.xyz')
-      .get(`/${city}?json=1&auth=759315464425069903834x1979`)
-      .reply(200, { longt: longt, latt: latt});
-
+      setCallGeoCode((url) => ({data:{ longt: longt, latt: latt }}));
       const { data } = await axios.post('http://localhost:3000/ville', { nom_ville: city });
       t.true(data.toString().includes(`https://maps.google.com/maps?q=${latt},${longt}&hl=es;z=14&amp;output=embed`))
     }

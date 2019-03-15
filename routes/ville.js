@@ -8,6 +8,10 @@ async function callGeoCode(url) {
   return await axios.get(url);
 }
 
+function setCallGeoCode(fct) {
+  callGeoCode = fct;
+}
+
 router.post('/', async function(req, res) {
   try {
     lacite = req.body.nom_ville;
@@ -38,4 +42,4 @@ router.post('/', async function(req, res) {
   }
 });
 
-module.exports = router;
+module.exports = {router, setCallGeoCode};
