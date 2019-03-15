@@ -4,22 +4,16 @@ const nock = require('nock');
 const port = 3000;
 const app = require('./app.js');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var cityRouter = require('./routes/ville');
-app.use('/index', indexRouter);
-app.use('/users', usersRouter);
-app.use('/ville', cityRouter);
-
 app.listen(port, () => {
 
   test('Test form exist', async t => {
     const res = await axios.get('http://localhost:3000/');
     let test = res.data.toString().includes('<form');
-    t.is(test, true);
+    t.true(test);
   });
 
-  test('Test ville identique', async t => {
+  test.serial('Test ville identique', async t => {
+    nock.cleanAll();
     try {
       const city = 'berlin';
       const longt = 26;
@@ -32,14 +26,16 @@ app.listen(port, () => {
         nom_ville: city
       });
       var test = res.data.toString().includes(city);
+      t.true(test);
     }
     catch (error) {
       console.log(error);
+      t.fail();
     }
-    t.is(test, true);
   });
 
-  test('Test ville error', async t => {
+  test.serial('Test ville error', async t => {
+    nock.cleanAll();
     try {
       const city = 'zefkjhzefkjnzef';
       const longt = 26;
@@ -52,14 +48,17 @@ app.listen(port, () => {
         nom_ville: city
       });
       var test = res.data.toString().includes('La ville entrée est inconnue');
+      t.true(test);
     }
     catch (error) {
       console.log(error);
+      t.fail();
     }
-    t.is(test, true);
+
   });
 
-  test('test geocode 404', async t => {
+  test.serial('test geocode 404', async t => {
+    nock.cleanAll();
     try {
       const city = 'zefkjhzefkjnzef';
       const longt = 26;
@@ -79,7 +78,8 @@ app.listen(port, () => {
     t.is(test, true);
   });
 
-  test('Test ville nock', async t => {
+  test.serial('Test ville nock', async t => {
+    nock.cleanAll();
     try {
       const city = 'berlin';
       const longt = 26;

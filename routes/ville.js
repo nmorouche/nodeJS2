@@ -4,10 +4,14 @@ var request = require('request');
 var axios = require('axios');
 var lacite;
 
+async function callGeoCode(url) {
+  return await axios.get(url);
+}
+
 router.post('/', async function(req, res) {
   try {
     lacite = req.body.nom_ville;
-    const response = await axios.get(`https://geocode.xyz/${req.body.nom_ville}?json=1&auth=759315464425069903834x1979`);
+    const response = await callGeoCode(`https://geocode.xyz/${req.body.nom_ville}?json=1&auth=759315464425069903834x1979`);
     console.log(response.data);
     if(response.data.error == null || response.data.error == undefined){
       res.render('ville', {
